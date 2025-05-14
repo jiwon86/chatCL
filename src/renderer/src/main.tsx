@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Signup from './pages/signup/Signup';
+import './assets/base.css';
 
 
 createRoot(document.getElementById('app')!).render(

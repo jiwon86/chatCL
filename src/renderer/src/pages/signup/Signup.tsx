@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Notyf } from 'notyf';
+import { Link } from 'react-router-dom';
 import 'notyf/notyf.min.css';
 import styles from './Signup.module.css';
 
@@ -97,13 +98,9 @@ export default function Signup(): React.JSX.Element {
 
         <div className={styles.altLink}>
           이미 계정이 있으신가요?{' '}
-          <button
-            type="button"
-            className={styles.linkButton}
-            onClick={() => nav('/')}
-          >
+          <Link to="/" className={styles.linkButton}>
             로그인 하기
-          </button>
+          </Link>
         </div>
       </div>
     </div>

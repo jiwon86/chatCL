@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import './loginStyle.css';
+import styles from './Login.module.css';
 
 export default function Login(): React.JSX.Element {
   const [email, setEmail] = useState<string>('');
@@ -34,11 +34,11 @@ export default function Login(): React.JSX.Element {
   };
 
   return (
-    <div className="login-container">
-      <div className="login-box">
-        <div className="logo">WizChat</div>
+    <div className={styles.loginContainer}>
+      <div className={styles.loginBox}>
+        <div className={styles.logo}>WizChat</div>
 
-        <form id="login-form" onSubmit={onSubmit}>
+        <form id="login-form" onSubmit={onSubmit} className={styles.form}>
           <input
             id="username"
             type="text"
@@ -46,6 +46,7 @@ export default function Login(): React.JSX.Element {
             value={email}
             required
             onChange={(e) => setEmail(e.target.value)}
+            className={styles.input}
           />
 
           <input
@@ -56,16 +57,19 @@ export default function Login(): React.JSX.Element {
             required
             minLength={6}
             onChange={(e) => setPassword(e.target.value)}
+            className={styles.input}
           />
 
-          <button type="submit">로그인</button>
+          <button type="submit" className={styles.submitButton}>
+            로그인
+          </button>
         </form>
 
-        {error && <div className="error-message">{error}</div>}
+        {error && <div className={styles.errorMessage}>{error}</div>}
 
-        <div className="alt-link">
+        <div className={styles.altLink}>
           계정이 없으신가요?{' '}
-          <Link to="/signup" className="link-button">
+          <Link to="/signup" className={styles.linkButton}>
             회원가입 하기
           </Link>
         </div>

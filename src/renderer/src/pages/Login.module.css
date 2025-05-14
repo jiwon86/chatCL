@@ -1,24 +1,16 @@
-/* 1) html/body/#app 전부 투명·flex 중앙정렬 */
-html, body, #app {
-  width: auto;       /* auto로 바꿔서 높이를 박스에 딱 맞춤 */
-  height: auto;
-  margin: 0;
-  padding: 0;
-  background: none;
-  display: block;    /* body 자체는 block으로 두고, 부모에서 중앙정렬은 하지 않습니다 */
-}
+/* Login.module.css */
 
-/* 2) login-container는 그냥 wrapper */
-.login-container {
+/* 1) 래퍼 컨테이너 */
+.loginContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px;
-  background: none;
+  /* 배경·크기 조정은 전역 css에서 합니다 */
 }
 
-/* 3) 핵심: login-box 카드 */
-.login-box {
+/* 2) 실제 카드 박스 */
+.loginBox {
   -webkit-app-region: drag;
   width: 360px;
   padding: 1rem;
@@ -29,9 +21,10 @@ html, body, #app {
   gap: 1.25rem;
   box-sizing: border-box;
   box-shadow: 3px 8px 8px rgba(0, 0, 0, 0.3);
-  margin: auto;     /* body 기준 중앙 배치 */
+  margin: auto;
 }
-/* 나머지 스타일은 그대로 유지 */
+
+/* 3) 로고 */
 .logo {
   font-size: 28px;
   font-weight: bold;
@@ -40,21 +33,25 @@ html, body, #app {
   margin-bottom: 10px;
 }
 
-form {
+/* 4) 폼 레이아웃 */
+.form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-input[type="text"],
-input[type="password"] {
+/* 5) 입력 필드 */
+.input {
   padding: 12px;
   font-size: 16px;
   border: 1px solid #ddd;
   border-radius: 8px;
+  /* 드래그 제외 */
+  -webkit-app-region: no-drag;
 }
 
-button {
+/* 6) 서브밋 버튼 */
+.submitButton {
   padding: 12px;
   font-size: 16px;
   background-color: #3c1e1e;
@@ -63,21 +60,26 @@ button {
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.2s;
+  -webkit-app-region: no-drag;
 }
-
-button:hover {
+.submitButton:hover {
   background-color: #2b1212;
 }
 
-/* “회원가입 하기” 링크/버튼 스타일 */
-.alt-link {
+/* 7) 에러 메시지 */
+.errorMessage {
+  color: #e00;
+  text-align: center;
+}
+
+/* 8) 회원가입 링크 */
+.altLink {
   margin-top: 1rem;
   text-align: center;
   font-size: 0.9rem;
   -webkit-app-region: no-drag;
 }
-
-.alt-link .link-button {
+.linkButton {
   display: inline-block;
   padding: 0.5rem 1rem;
   color: black;
@@ -85,15 +87,7 @@ button:hover {
   text-decoration: none;
   cursor: pointer;
   border: none;
-
 }
-
-.alt-link .link-button:hover {
+.linkButton:hover {
   color: blue;
-}
-
-
-.login-box input,
-.login-box button {
-  -webkit-app-region: no-drag;
 }

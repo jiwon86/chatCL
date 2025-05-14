@@ -6,8 +6,7 @@ import icon from '../../resources/icon.png?asset'
 function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 380,
-    height: 400,
+    useContentSize: true,
     show: false,
     backgroundColor: '#00000000', // 투명하게
     transparent: true,            // 투명 창
