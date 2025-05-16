@@ -1,27 +1,27 @@
 /* Login.module.css */
 
 /* 1) 래퍼 컨테이너 */
+
+.loginWrapper{
+  display: inline-block;
+  overflow: visible;
+  padding: 6px;
+}
+
 .loginContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  /* 배경·크기 조정은 전역 css에서 합니다 */
+  background-color: #fff;
+  border-radius: inherit;
+  box-shadow: 0px 0px 11px rgba(0,0,0,0.3);
+  padding: 1rem;
 }
 
 /* 2) 실제 카드 박스 */
 .loginBox {
   -webkit-app-region: drag;
   width: 360px;
-  padding: 1rem;
-  background-color: #fff;
-  border-radius: 1rem;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  box-sizing: border-box;
-  box-shadow: 3px 8px 8px rgba(0, 0, 0, 0.3);
-  margin: auto;
 }
 
 /* 3) 로고 */

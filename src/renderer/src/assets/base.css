@@ -1,7 +1,28 @@
 html, body, #app {
+
+  /* 1) 꼭 필요: 브라우저 기본 여백 제거 */
+  margin: 0;
+  padding: 0;
+
+  /* 2) 뷰포트 전체를 채워야 flex 중앙 정렬이 가능 */
   width: 100vw;
   height: 100vh;
+
+  /* 3) 플렉스 컨테이너로 전환 */
   display: flex;
-  justify-content: center;
-  align-items: center;
+
+  /* 4) 가로/세로 모두 가운데 정렬 */
+  justify-content: center; /* 가로 중앙 */
+  align-items: center;     /* 세로 중앙 */
+
+  /* 5) 스크롤이 생기지 않게 */
+  overflow: hidden;
+
+  /* 선택: 전역 box-sizing 통일 */
+  box-sizing: border-box;
+}
+
+/* 모든 요소에 box-sizing 상속 */
+*, *::before, *::after {
+  box-sizing: inherit;
 }
