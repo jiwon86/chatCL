@@ -2,16 +2,10 @@
 
 /* 1) 래퍼 컨테이너 */
 
-.loginWrapper{
-  display: inline-block;
-  overflow: visible;
-  padding: 6px;
-}
-
 .loginContainer {
   background-color: #fff;
   border-radius: inherit;
-  box-shadow: 0px 0px 11px rgba(0,0,0,0.3);
+  box-shadow: 0px 0px 11px rgba(0,0,0,0.5);
   padding: 1rem;
 }
 

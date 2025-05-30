@@ -6,6 +6,10 @@
   justify-content: center;
   align-items: center;
   padding: 10px;
+  background-color: #fff;
+  border-radius: inherit;
+  box-shadow: 0px 0px 11px rgba(0,0,0,0.5);
+
 }
 
 /* 2) 내부 박스 레이아웃 */
@@ -13,13 +17,11 @@
   -webkit-app-region: drag;
   width: 360px;
   padding: 1rem;
-  background-color: #fff;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
   box-sizing: border-box;
-  box-shadow: 3px 8px 8px rgba(0, 0, 0, 0.3);
   margin: auto;
 }
 

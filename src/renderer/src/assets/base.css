@@ -26,3 +26,13 @@ html, body, #app {
 *, *::before, *::after {
   box-sizing: inherit;
 }
+
+div#app{
+  padding: 6px;
+}
+
+.contentWrapper{
+  display: inline-block;
+  overflow: visible;
+  padding: 6px;
+}

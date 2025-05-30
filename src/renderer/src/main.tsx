@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import Signup from './pages/signup/Signup';
+import App from './App';
 import './assets/base.css';
 
 
@@ -12,6 +13,8 @@ createRoot(document.getElementById('app')!).render(
       {/* URL path와 컴포넌트 매핑 */}
       <Route path="/" element={<Login />} />            
       <Route path="/signup" element={<Signup />} />         
+
+      <Route path="/app" element={<App />} />         
       
       {/* http://…/#/ */}
 

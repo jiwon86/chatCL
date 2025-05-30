@@ -7,9 +7,10 @@ import { registerUtilAPI } from './ipc/utilAPI'
 function createWindow(): BrowserWindow {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 100,
-    height: 100,
+    width: 404,
+    height: 353,
     useContentSize: true,
+    center:true,
     show: false,
     backgroundColor: '#00000000', // 투명하게
     transparent: true,            // 투명 창
@@ -54,6 +55,8 @@ app.whenReady().then(() => {
 
   // IPC 등록
   registerUtilAPI(win);
+
+
 
   // Default open or close DevTools by F12 in development
   // and ignore CommandOrControl + R in production.

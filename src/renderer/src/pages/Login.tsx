@@ -20,24 +20,13 @@ export default function Login(): React.JSX.Element {
       }
     };
 
+    //사이즈 체크
     const box = loginBoxRef.current;
     const { width, height } = box!.getBoundingClientRect();
     
-    const shadow = getComputedStyle(box!).boxShadow;
-    const pxMatches = shadow.match(/-?\d+px/g) || [];
-    const [ox = 0, oy = 0, blur = 0, spread = 0] = pxMatches.map(v => parseInt(v, 10));
-
-    const extraX = Math.abs(ox) + blur + spread;   // 좌·우 여유
-    const extraY = Math.abs(oy) + blur + spread;   // 위·아래 여유
-    console.log(extraX,extraY);
-    const w = Math.ceil(width)  + extraX * 2;
-    const h = Math.ceil(height) + extraY * 2;
-
+    // 사이즈 조절
     window.utilAPI.setSize(Math.ceil(width), Math.ceil(height));   // ipcRenderer.invoke('set-size', w, h);
      
-
-   // window.electronAPI.on('login-response', handler);
-
     return () => {
       // 컴포넌트 언마운트 시 리스너 해제
      // window.electronAPI.on('login-response', () => {});
@@ -46,12 +35,13 @@ export default function Login(): React.JSX.Element {
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setError(null);
+    console.log("asd")
+    navigate("./App")
     //window.electronAPI.send('login-attempt', { email, password });
   };
 
   return (
-    <div ref={loginBoxRef} className={styles.loginWrapper}>
+    <div ref={loginBoxRef} className="contentWrapper">
       <div className={styles.loginContainer}>
         <div className={styles.loginBox}>
           <div className={styles.logo}>WizChat</div>

@@ -1,35 +1,39 @@
-import Versions from './components/Versions'
-import electronLogo from './assets/electron.svg'
+
+import { useEffect, useRef } from 'react';
+import styles from './App.module.css';
+import ChatList from './components/ChatList';
 
 function App(): React.JSX.Element {
-  const ipcHandle = (): void => window.electron.ipcRenderer.send('ping')
+  const boxRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+
+      //사이즈 체크
+      const box = boxRef.current;
+      const { width, height } = box!.getBoundingClientRect();
+      
+      // 사이즈 조절
+      window.utilAPI.setSize(Math.ceil(width), Math.ceil(height));   // ipcRenderer.invoke('set-size', w, h);
+       
+      return () => {
+
+      };
+    }, []);
 
   return (
-    <>
-      <img alt="logo" className="logo" src={electronLogo} />
-      <div className="creator">Powered by electron-vite</div>
-      <div className="text">
-        Build an Electron app with <span className="react">React</span>
-        &nbsp;and <span className="ts">TypeScript</span>
+    <div ref={boxRef} className='contentWrapper'>
+      <div className={styles.container}>
+        <aside className={styles.sidebar}>
+          <div className={styles.icon}>💬</div>
+          <div className={styles.icon}>👥</div>
+          <div className={styles.icon}>⚙️</div>
+        </aside>
+        <main className={styles.main}>
+          <ChatList />
+        </main>
       </div>
-      <p className="tip">
-        Please try pressing <code>F12</code> to open the devTool
-      </p>
-      <div className="actions">
-        <div className="action">
-          <a href="https://electron-vite.org/" target="_blank" rel="noreferrer">
-            Documentation
-          </a>
-        </div>
-        <div className="action">
-          <a target="_blank" rel="noreferrer" onClick={ipcHandle}>
-            Send IPC
-          </a>
-        </div>
-      </div>
-      <Versions></Versions>
-    </>
-  )
+    </div>
+  );
 }
 
 export default App
